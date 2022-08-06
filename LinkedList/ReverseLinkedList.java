@@ -9,29 +9,17 @@
  * }
  */
 class Solution {
-    public ListNode removeElements(ListNode head, int val) {
-     ListNode prev=null;
-        ListNode temp=head;
-        if(temp==null){
-            return head;
-        }
-        else{
-            while(temp!=null){
-                if(temp.val==val){
-                    if(prev!=null){
-                        prev.next=temp.next;
+    public ListNode reverseList(ListNode head) {
+       ListNode pointer = head; 
+        ListNode previous = null;
+        ListNode current = null; 
+        while (pointer != null) {
+            current = pointer;
+            pointer = pointer.next; // reverse the link
+            current.next = previous; 
+            previous = current;
+            head = current; } 
 
-                    }
-                    else{
-                        head=temp.next;
-                    }
-                }
-                else{
-                    prev=temp;
-                }
-                temp=temp.next;
-            }
-        }
-        return head;
+return head;
     }
 }
